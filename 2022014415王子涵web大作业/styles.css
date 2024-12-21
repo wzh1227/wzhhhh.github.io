@@ -1,0 +1,200 @@
+/* 全局样式 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+
+}
+
+/* 头部和导航样式 */
+header {
+    background-color: #e8491d;
+    color: #fff;
+    padding: 10px 0;
+}
+.logo h1 {
+    margin: 0;
+    padding: 0 20px;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+nav ul li {
+    margin: 0 10px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+}
+nav ul li a.active, nav ul li a:hover {
+    background-color: #e8491d;
+}
+
+/* 主要内容区域样式 */
+main{
+    border:100px solid;
+    border-image-source:url("./bj1.jpg");
+    border-image-slice: 8.3% 11.8% 8.3% 11.8%;
+}
+
+main table tr td {
+    padding: 10px;  /* 设置内边距10px */
+}
+
+main section {
+    padding: 5px;  /* 内边距5px */
+    margin: 3px;   /* 外边距3px */
+}
+
+main h2 {
+    margin-bottom: 5px;  /* 下外边距5px */
+}
+
+/* 轮播图样式 */
+/* 轮播图容器样式 */
+.slider {
+    position: relative;
+    max-width: 100%;
+    margin: 5px 0;
+    transition: opacity 0.5s ease;
+}
+.slides {
+    display: flex;
+    width: 100%;
+    height: 370px;
+    overflow: hidden;
+      justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  transition: transform 0.5s ease;
+}
+.slides input {
+    display: none;
+}
+.slide {
+    width: 60%;
+    transition: 2s;
+}
+.slide img {
+    width: 100%;
+    height: 370px;
+}
+/* 显示中的幻灯片 */
+.slide.active {
+    opacity: 1; /* 显示中的幻灯片透明度为1 */
+}
+.navigation-manual {
+    position: absolute;
+    width: 100%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+.manual-btn {
+    border: none;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+
+/* 介绍和按钮样式 */
+.intro {
+    text-align: center;
+    margin-top: 20px;
+}
+.intro h2 {
+    color: #333;
+}
+.intro p {
+    color: #666;
+}
+.intro button {
+    background-color: #e8491d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.intro button:hover {
+    background-color: #c73a12;
+}
+
+/* 菜单分类和列表样式 */
+.menu-categories {
+    text-align: center;
+    margin: 20px 0;
+}
+.category-btn {
+    background-color: #e8491d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.category-btn:hover {
+    background-color: #c73a12;
+}
+/* 菜单列表容器样式 */
+/* 菜单列表容器样式 */
+
+.menu-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 创建两列的网格布局 */
+    gap: 20px; /* 设置项目之间的间隔 */
+    padding: 20px;
+    justify-content: center; /* 水平居中 */
+}
+
+/* 菜单项样式 */
+.menu-item {
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 400px; /* 设置菜单项的高度为250像素 */
+}
+
+/* 菜单项图片样式 */
+.menu-item img {
+    max-width: 100%; /* 图片最大宽度为项目宽度 */
+    width: 650px;
+    height: 300px;; /* 图片高度自动 */
+    margin-bottom: 10px; /* 图片和文字之间的间隔 */
+
+
+/* 菜单项标题样式 */
+.menu-item h3 {
+    color: #333;
+    margin: 0;
+}
+
+.menu-item p {
+    color: #666;
+    margin: 0;
+}
+.menu-list1 {
+    display: flex;
+    flex-direction: column; /* 设置为纵向排列 */
+    padding: 0; /* 移除内边距 */
+    margin: 0 auto; /* 居中显示 */
+    width: 100%; /* 设置容器宽度为100% */
+}
+
+/* 菜单项样式 */
+

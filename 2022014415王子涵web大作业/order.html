@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单 - 火锅点餐系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>猪头肉火锅点餐系统</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="menu.html">菜单</a></li>
+                <li><a href="order.html" class="active">订单</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="order-form">
+            <h2>下单</h2>
+            <form id="orderForm">
+                <div class="menu-list1">
+                    <div class="menu-item1">
+                        <input type="checkbox" id="lamb" name="lamb" value="30">
+                        <label for="lamb">羊肉卷 - ￥30</label>
+                    </div>
+                    <div class="menu-item1">
+                        <input type="checkbox" id="beef" name="beef" value="32">
+                        <label for="beef">牛肉卷 - ￥32</label>
+                    </div>
+                    <div class="menu-item1">
+                        <input type="checkbox" id="vegetables" name="vegetables" value="20">
+                        <label for="vegetables">蔬菜拼盘 - ￥20</label>
+                    </div>
+                    <div class="menu-item1">
+                        <input type="checkbox" id="mushrooms" name="mushrooms" value="25">
+                        <label for="mushrooms">菌菇拼盘 - ￥25</label>
+                    </div>
+                    <div class="menu-item1">
+                        <input type="checkbox" id="shrimp" name="shrimp" value="35">
+                        <label for="shrimp">虾滑 - ￥35</label>
+                    </div>
+                    <div class="menu-item1">
+                        <input type="checkbox" id="fish" name="fish" value="28">
+                        <label for="fish">鱼片 - ￥28</label>
+                    </div>
+                    <div class="menu-item1">
+                        <input type="checkbox" id="ml" name="ml" value="48">
+                        <label for="ml">麻辣锅底 - ￥48</label>
+                    </div>
+                    <div class="menu-item1">
+                        <input type="checkbox" id="qt" name="qt" value="38">
+                        <label for="qt">清汤锅底 - ￥38</label>
+                    </div>
+                    <div class="menu-item1">
+                        <input type="checkbox" id="fq" name="fq" value="42">
+                        <label for="fq">番茄锅底 - ￥42</label>
+                    </div>
+                </div>
+                <div class="total-price">
+                    <label for="total">总价:</label>
+                    <span id="total">￥0</span>
+                </div>
+                <input type="submit" value="提交订单">
+            </form>
+            <div id="form-messages"></div>
+        </section>
+    </main>
+    <footer class="footer-content">
+        <p>版权所有 © 2022014415王子涵</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.menu-item1 input[type="checkbox"]');
+            const totalDisplay = document.getElementById('total');
+
+            function calculateTotal() {
+                let total = 0;
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        total += parseInt(checkbox.value);
+                    }
+                });
+                totalDisplay.textContent = `￥${total}`;
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', calculateTotal);
+            });
+
+            document.getElementById('orderForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const formMessages = document.getElementById('form-messages');
+                if (checkboxes.forEach(checkbox => checkbox.checked) === false) {
+                    formMessages.textContent = '请选择至少一个菜品。';
+                } else {
+                    const selectedDishes = [];
+                    checkboxes.forEach(checkbox => {
+                        if (checkbox.checked) {
+                            selectedDishes.push(`${checkbox.id} - ￥${checkbox.value}`);
+                        }
+                    });
+                    formMessages.textContent = `订单已提交: ${selectedDishes.join(', ')}`;
+                    this.reset();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

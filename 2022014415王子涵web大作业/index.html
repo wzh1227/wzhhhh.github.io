@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火锅点餐系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>猪头肉火锅点餐系统</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">首页</a></li>
+                <li><a href="menu.html">菜单</a></li>
+                <li><a href="order.html">订单</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="slider">
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1" checked>
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <div class="slide ">
+                    <img src="dish1.jfif" alt="特色火锅1">
+                </div>
+                <div class="slide">
+                    <img src="dish2.jfif" alt="特色火锅2">
+                </div>
+                <div class="slide">
+                    <img src="dish3.jpg" alt="特色火锅3">
+                </div>
+    </div>
+</div>
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                </div>
+            </div>
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+            </div>
+        </section>
+        <section class="intro">
+            <h2>欢迎来到我们的火锅店</h2>
+            <p>我们提供最新鲜、最美味的火锅食材，让您享受无与伦比的火锅体验。</p>
+            <p>无论是家庭聚餐还是朋友聚会，这里都是您的最佳选择。</p>
+            <button onclick="location.href='menu.html'">查看菜单</button>
+        </section>
+    </main>
+    <footer>
+    <div class="footer-content">
+        <p>版权所有 © 2022014415王子涵</p>
+    </div>
+</footer>
+    <script>
+let index = 0;
+showSlides(index);
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("slide");
+    if (n >= slides.length) {index = 0}    
+    if (n < 0) {index = slides.length - 1}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slides[index].style.display = "block";  
+}
+
+function plusSlides(n) {
+    index += n;
+    showSlides(index);  
+}
+
+setInterval(plusSlides, 3000, 1);
+
+// 手动导航
+document.querySelector('.manual-btn').addEventListener('click', function() {
+    let slideNumber = this.getAttribute('data-slide');
+    showSlides(slideNumber);
+});
+document.querySelectorAll('.category-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const category = this.getAttribute('data-category');
+        filterMenuItems(category);
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    // 获取所有的手动导航按钮
+    const manualButtons = document.querySelectorAll('.manual-btn');
+    // 获取所有的幻灯片
+    const slides = document.querySelectorAll('.slide');
+    // 当前显示的幻灯片索引
+    let currentIndex = 0;
+
+    // 显示幻灯片的函数
+    function showSlide(index) {
+        // 隐藏所有幻灯片
+        slides.forEach(slide => {
+            slide.style.display = 'none';
+        });
+        // 显示当前索引的幻灯片
+        slides[index].style.display = 'block';
+    }
+
+    // 初始显示第一张幻灯片
+    showSlide(currentIndex);
+
+    // 为每个手动导航按钮添加点击事件
+    manualButtons.forEach((button, index) => {
+        button.addEventListener('click', function() {
+            // 显示对应索引的幻灯片
+            showSlide(index);
+        });
+    });
+});
+    </script>
+</body>
+</html>

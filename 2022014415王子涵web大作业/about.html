@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 火锅点餐系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>猪头肉火锅点餐系统</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="menu.html">菜单</a></li>
+                <li><a href="order.html">订单</a></li>
+                <li><a href="about.html" class="active">关于我们</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="about-intro">
+    <h2>关于我们</h2>
+    <p>我们的火锅店成立于2010年，以提供最新鲜、最美味的火锅食材和最优质的服务为宗旨。经过多年的发展，已经成为本地最受欢迎的火锅店之一。</p>
+    <p>我们坚持使用最优质的食材，不断创新和改进我们的菜单，以满足顾客的口味和需求。</p>
+    <!-- 视频播放器 -->
+<video id="shipin" src="./video.MP4" width="800" height="300" controls="controls" loop></video>
+</section>
+        <section class="team">
+            <h2>团队介绍</h2>
+            <div class="team-member">
+                <img src="chef.jpg" alt="主厨">
+                <h3>张大厨</h3>
+                <p>我们的主厨张大厨拥有超过20年的烹饪经验，对火锅有着深厚的理解和独特的见解。</p>
+            </div>
+            <div class="team-member">
+                <img src="manager.jpg" alt="经理">
+                <h3>李经理</h3>
+                <p>李经理负责餐厅的日常运营和管理，以确保每一位顾客都能享受到最优质的服务。</p>
+            </div>
+            <!-- 更多团队成员 -->
+            <img src="cstd.jfif" alt="cstd" class="team-cstd">
+        </section>
+        <section class="testimonials">
+            <h2>客户评价</h2>
+            <div class="testimonial">
+                <p>“这是我吃过的最美味的火锅，服务也非常周到，下次还会再来。”</p>
+                <cite>— 顾客A</cite>
+            </div>
+            <div class="testimonial">
+                <p>“环境舒适，食材新鲜，特别是他们的特色羊肉卷，简直是一绝。”</p>
+                <cite>— 顾客B</cite>
+            </div>
+            <!-- 更多客户评价 -->
+        </section>
+    </main>
+<footer>
+    <div class="footer-content">
+        <p>版权所有 © 2022014415王子涵</p>
+    </div>
+</footer>
+    <script>
+        let testimonialIndex = 0;
+const testimonials = document.querySelectorAll('.testimonial');
+const totalTestimonials = testimonials.length;
+
+// 显示第一个评价
+testimonials[testimonialIndex].classList.add('active-testimonial');
+
+// 设置轮播间隔
+setInterval(() => {
+    // 隐藏当前的评价
+    testimonials[testimonialIndex].classList.remove('active-testimonial');
+    // 计算下一个评价的索引
+    testimonialIndex = (testimonialIndex + 1) % totalTestimonials;
+    // 显示下一个评价
+    testimonials[testimonialIndex].classList.add('active-testimonial');
+}, 3000); // 每5秒切换一次评价
+    </script>
+</body>
+</html>

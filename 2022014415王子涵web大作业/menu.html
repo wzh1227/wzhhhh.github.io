@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜单 - 火锅点餐系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>猪头肉火锅点餐系统</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="menu.html" class="active">菜单</a></li>
+                <li><a href="order.html">订单</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="menu-categories">
+            <button class="category-btn" data-category="all">全部</button>
+            <button class="category-btn" data-category="meat">肉类</button>
+            <button class="category-btn" data-category="vegetable">蔬菜</button>
+            <button class="category-btn" data-category="seafood">海鲜</button>
+            <button class="category-btn" data-category="pot">锅底</button>
+        </section>
+        <section class="menu-list">
+            <!-- 肉类 -->
+            <div class="menu-item meat">
+                <img src="meat1.jpg" alt="羊肉卷">
+                <h3>羊肉卷 - ￥30</h3>
+            </div>
+            <div class="menu-item meat">
+                <img src="meat2.jfif" alt="牛肉卷">
+                <h3>牛肉卷 - ￥32</h3>
+            </div>
+            <!-- 蔬菜 -->
+            <div class="menu-item vegetable">
+                <img src="vegetable1.jpg" alt="蔬菜拼盘">
+                <h3>蔬菜拼盘 - ￥20</h3>
+            </div>
+            <div class="menu-item vegetable">
+                <img src="vegetable2.jfif" alt="菌菇拼盘">
+                <h3>菌菇拼盘 - ￥25</h3>
+            </div>
+            <!-- 海鲜 -->
+            <div class="menu-item seafood">
+                <img src="seafood1.jfif" alt="虾滑">
+                <h3>虾滑 - ￥35</h3>
+            </div>
+            <div class="menu-item seafood">
+                <img src="seafood2.jpg" alt="鱼片">
+                <h3>鱼片 - ￥28</h3>
+            </div>
+            <!-- 锅底 -->
+            <div class="menu-item pot">
+                <img src="spicy-pot.jpg" alt="麻辣锅底">
+                <h3>麻辣锅底 - ￥48</h3>
+            </div>
+            <div class="menu-item pot">
+                <img src="mild-pot.jpg" alt="清汤锅底">
+                <h3>清汤锅底 - ￥38</h3>
+            </div>
+            <div class="menu-item pot">
+                <img src="tomato-pot.jfif" alt="番茄锅底">
+                <h3>番茄锅底 - ￥42</h3>
+            </div>
+        </section>
+    </main>
+    <footer class="footer-content">
+        <p>版权所有 © 2022014415王子涵</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            function showAll() {
+                menuItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+            }
+
+            function showCategory(category) {
+                menuItems.forEach(item => {
+                    if (category === 'all' || item.classList.contains(category)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    if (category === 'all') {
+                        showAll();
+                    } else {
+                        showCategory(category);
+                    }
+                    // 重置所有按钮的激活状态，并激活当前按钮
+                    categoryBtns.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // 默认显示所有菜品
+            showAll();
+        });
+    </script>
+</body>
+</html>
